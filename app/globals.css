@@ -116,7 +116,7 @@ textarea:focus-visible {
 
 .header-inner {
   display: flex;
-  min-height: 88px;
+  min-height: 104px;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
@@ -124,23 +124,25 @@ textarea:focus-visible {
 
 .brand {
   display: inline-flex;
-  min-width: 245px;
+  min-width: 0;
   align-items: center;
-  gap: 12px;
 }
 
 .brand-logo-wrap {
   display: block;
-  width: 72px;
-  height: 72px;
-  flex: 0 0 72px;
+  width: 330px;
+  height: 85px;
+  flex: 0 0 330px;
   filter: drop-shadow(0 8px 15px rgba(8, 47, 54, 0.15));
 }
 
 .brand-logo {
-  width: 100%;
-  height: 100%;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none;
   object-fit: contain;
+  object-position: left center;
 }
 
 .brand-copy {
@@ -979,9 +981,10 @@ textarea:focus-visible {
 
 .review-card-meta {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
   color: rgba(255, 255, 255, 0.62);
   font-size: 11px;
   font-weight: 850;
@@ -1696,20 +1699,23 @@ textarea:focus-visible {
 .footer-top {
   display: grid;
   grid-template-columns: 1.3fr repeat(3, 0.7fr);
+  align-items: start;
   gap: 50px;
   padding-bottom: 58px;
 }
 
 .footer-brand {
   display: flex;
-  align-items: center;
-  gap: 16px;
+  align-items: flex-start;
 }
 
 .footer-brand img {
-  width: 104px;
-  height: 104px;
+  display: block;
+  width: 360px !important;
+  height: auto !important;
+  max-width: 100%;
   object-fit: contain;
+  object-position: left top;
 }
 
 .footer-brand strong {
@@ -1777,6 +1783,16 @@ textarea:focus-visible {
 
 /* Responsive */
 @media (max-width: 1120px) {
+  .brand-logo-wrap {
+    width: 290px;
+    height: 75px;
+    flex-basis: 290px;
+  }
+
+  .footer-brand img {
+    width: 320px !important;
+  }
+
   .site-navigation {
     gap: 18px;
   }
@@ -1831,13 +1847,13 @@ textarea:focus-visible {
   }
 
   .header-inner {
-    min-height: 76px;
+    min-height: 88px;
   }
 
   .brand-logo-wrap {
-    width: 58px;
-    height: 58px;
-    flex-basis: 58px;
+    width: 270px;
+    height: 70px;
+    flex-basis: 270px;
   }
 
   .brand-copy small {
@@ -2051,11 +2067,16 @@ textarea:focus-visible {
   }
 
   .footer-top {
-    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-columns: minmax(250px, 1.2fr) repeat(3, minmax(120px, 0.7fr));
+    gap: 26px;
   }
 
   .footer-brand {
-    grid-column: 1 / -1;
+    grid-column: auto;
+  }
+
+  .footer-brand img {
+    width: 285px !important;
   }
 }
 
@@ -2072,6 +2093,12 @@ textarea:focus-visible {
 
   .brand {
     min-width: 0;
+  }
+
+  .brand-logo-wrap {
+    width: 220px;
+    height: 57px;
+    flex-basis: 220px;
   }
 
   .brand-copy strong {
@@ -2316,6 +2343,11 @@ textarea:focus-visible {
 
   .quote-back {
     min-height: 42px;
+  }
+
+  .footer-brand img {
+    width: min(100%, 300px) !important;
+    height: auto !important;
   }
 
   .footer-top {

@@ -46,15 +46,12 @@ export default function SiteHeader() {
             <Image
               src="/plomberie-matinier/icon.png"
               alt="Logo Plomberie Matinier"
-              width={1200}
-              height={1200}
+              width={1005}
+              height={260}
+              sizes="(max-width: 650px) 220px, (max-width: 900px) 270px, (max-width: 1120px) 290px, 330px"
               priority
               className="brand-logo"
             />
-          </span>
-          <span className="brand-copy">
-            <strong>Plomberie Matinier</strong>
-            <small>Saint-Étienne-de-Chigny</small>
           </span>
         </a>
 

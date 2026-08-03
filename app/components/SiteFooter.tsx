@@ -11,13 +11,10 @@ export default function SiteFooter() {
           <Image
             src="/plomberie-matinier/icon.png"
             alt="Logo Plomberie Matinier"
-            width={1200}
-            height={1200}
+            width={1005}
+            height={260}
+            sizes="(max-width: 650px) 300px, (max-width: 900px) 285px, (max-width: 1120px) 320px, 360px"
           />
-          <div>
-            <strong>Plomberie Matinier</strong>
-            <p>Dépannage, salle de bain et WC.</p>
-          </div>
         </div>
 
         <div className="footer-column">
