@@ -9,7 +9,7 @@ export default function SiteFooter() {
       <div className="page-shell footer-top">
         <div className="footer-brand">
           <Image
-            src="/plomberie-matinier/logo-plomberie-matinier.png"
+            src="/plomberie-matinier/icon.png"
             alt="Logo Plomberie Matinier"
             width={1200}
             height={1200}

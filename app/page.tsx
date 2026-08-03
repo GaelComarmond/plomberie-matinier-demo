@@ -261,11 +261,22 @@ function PinIcon() {
 }
 
 function ReviewCarousel() {
-  const [activeReview, setActiveReview] = useState(0);
+  const [activeReview, setActiveReview] = useState(() =>
+    Math.floor(Math.random() * reviews.length),
+  );
 
   useEffect(() => {
     const timer = window.setInterval(() => {
-      setActiveReview((current) => (current + 1) % reviews.length);
+      setActiveReview((current) => {
+        if (reviews.length <= 1) return current;
+
+        let nextReview = current;
+        while (nextReview === current) {
+          nextReview = Math.floor(Math.random() * reviews.length);
+        }
+
+        return nextReview;
+      });
     }, 8500);
 
     return () => window.clearInterval(timer);
@@ -275,7 +286,7 @@ function ReviewCarousel() {
 
   return (
     <div className="review-carousel">
-      <article className="review-card">
+      <article className="review-card" key={review.name}>
         <div className="review-card-meta">
           <span className="review-stars" aria-label="5 étoiles">★★★★★</span>
           <span>Avis Google</span>
@@ -286,44 +297,8 @@ function ReviewCarousel() {
             <strong>{review.name}</strong>
             <span>{review.context}</span>
           </div>
-          <div className="review-controls">
-            <button
-              type="button"
-              aria-label="Avis précédent"
-              onClick={() =>
-                setActiveReview((current) =>
-                  current === 0 ? reviews.length - 1 : current - 1,
-                )
-              }
-            >
-              ←
-            </button>
-            <span>{String(activeReview + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}</span>
-            <button
-              type="button"
-              aria-label="Avis suivant"
-              onClick={() =>
-                setActiveReview((current) => (current + 1) % reviews.length)
-              }
-            >
-              →
-            </button>
-          </div>
         </div>
       </article>
-      <div className="review-index" aria-hidden="true">
-        {reviews.map((item, index) => (
-          <button
-            type="button"
-            className={index === activeReview ? "review-index-active" : ""}
-            onClick={() => setActiveReview(index)}
-            key={item.name}
-          >
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <strong>{item.name}</strong>
-          </button>
-        ))}
-      </div>
     </div>
   );
 }
@@ -862,7 +837,7 @@ export default function Home() {
     "@type": "Plumber",
     name: "Plomberie Matinier",
     telephone: PHONE_LINK,
-    image: "/plomberie-matinier/logo-plomberie-matinier.png",
+    image: "/plomberie-matinier/icon.png",
     address: {
       "@type": "PostalAddress",
       streetAddress: "11 Allée Barbara",
@@ -922,10 +897,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-visual" aria-label="Plomberie Matinier et exemples de réalisations">
+          <div className="hero-visual" aria-label="Plomberie Matinier">
             <div className="hero-portrait-card">
               <Image
-                src="/plomberie-matinier/gregory-matinier-portrait.webp"
+                src="/plomberie-matinier/gregory-matinier-portrait.png"
                 alt="Plombier de Plomberie Matinier devant son véhicule"
                 width={1100}
                 height={1300}
@@ -935,22 +910,6 @@ export default function Home() {
                 <span>Plomberie Matinier</span>
                 <strong>Professionnalisme · Réactivité · Soin</strong>
               </div>
-            </div>
-            <div className="hero-detail-card hero-detail-one">
-              <Image
-                src="/plomberie-matinier/meuble-salle-de-bain.webp"
-                alt="Meuble de salle de bain avec double vasque et miroir lumineux"
-                width={1170}
-                height={1470}
-              />
-            </div>
-            <div className="hero-detail-card hero-detail-two">
-              <Image
-                src="/plomberie-matinier/installation-douche-paroi.webp"
-                alt="Douche équipée d’une paroi vitrée"
-                width={1001}
-                height={677}
-              />
             </div>
           </div>
         </div>
@@ -968,15 +927,9 @@ export default function Home() {
 
       <section className="services-section" id="services">
         <div className="page-shell">
-          <div className="section-heading section-heading-split">
-            <div>
-              <p className="eyebrow">Prestations</p>
-              <h2>La plomberie utile, pièce par pièce.</h2>
-            </div>
-            <p>
-              Les prestations ci-dessous reprennent uniquement les services indiqués
-              sur la fiche de l’entreprise.
-            </p>
+          <div className="section-heading">
+            <p className="eyebrow">Prestations</p>
+            <h2>La plomberie utile, pièce par pièce.</h2>
           </div>
 
           <div className="services-grid">
@@ -1044,14 +997,14 @@ export default function Home() {
         <div className="page-shell about-grid">
           <div className="about-photo">
             <Image
-              src="/plomberie-matinier/gregory-matinier-portrait.webp"
+              src="/plomberie-matinier/gregory-matinier-portrait.png"
               alt="Plombier de Plomberie Matinier"
               width={1100}
               height={1300}
             />
             <div className="about-badge">
               <Image
-                src="/plomberie-matinier/logo-plomberie-matinier.png"
+                src="/plomberie-matinier/icon.png"
                 alt="Logo Plomberie Matinier"
                 width={1200}
                 height={1200}

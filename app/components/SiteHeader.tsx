@@ -44,7 +44,7 @@ export default function SiteHeader() {
         >
           <span className="brand-logo-wrap">
             <Image
-              src="/plomberie-matinier/logo-plomberie-matinier.png"
+              src="/plomberie-matinier/icon.png"
               alt="Logo Plomberie Matinier"
               width={1200}
               height={1200}

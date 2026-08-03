@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/plomberie-matinier/gregory-matinier-portrait.webp",
+        url: "/plomberie-matinier/gregory-matinier-portrait.png",
         width: 1100,
         height: 1300,
         alt: "Plomberie Matinier",
