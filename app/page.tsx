@@ -114,11 +114,6 @@ const preferredTimes = [
 
 const reviews = [
   {
-    name: "Sam MUON",
-    text: "Je suis extrêmement satisfaite de l’intervention du plombier. Le montage de mon meuble vasque avec miroir a été réalisé avec beaucoup de professionnalisme et une grande efficacité. Le travail a été effectué très rapidement tout en étant particulièrement soigné. Le résultat est impeccable, le meuble et le miroir sont parfaitement installés. L’intervenant a également été ponctuel, aimable et respectueux de mon logement. Je recommande vivement ses services et n’hésiterai pas à faire appel à lui de nouveau si besoin.",
-    context: "Installation d’un meuble vasque avec miroir",
-  },
-  {
     name: "J. Duchesne",
     text: "Les avis 5 étoiles sont mérités. M. Matinier est rapidement intervenu pour un souci qui dure depuis des mois, et pour lequel les responsables n’ont jamais voulu s’occuper. Enfin réparé ! Cet artisan est aimable, réactif et compétent, c’est assez rare pour être souligné. Un grand merci.",
     context: "Intervention sur un problème ancien",
@@ -872,7 +867,7 @@ export default function Home() {
         <div className="page-shell hero-grid">
           <div className="hero-copy">
             <p className="eyebrow eyebrow-light">Plombier à Saint-Étienne-de-Chigny</p>
-            <h1>Un travail net.<br /><span>Une réponse claire.</span></h1>
+            <h1>Un travail efficace.<br /><span>Une réponse claire.</span></h1>
             <p className="hero-intro">
               Dépannage, WC, douche, baignoire, robinetterie et installation de salle de bain,
               avec le sérieux que les clients décrivent dans leurs avis.
@@ -891,8 +886,8 @@ export default function Home() {
                 <small>123 avis Google</small>
               </div>
               <div>
-                <strong>102 × 5/5</strong>
-                <small>Évaluations indiquées sur Infobel</small>
+                <strong>5,0 <span>★★★★★</span></strong>
+                <small>102 avis sur Infobel</small>
               </div>
             </div>
           </div>
@@ -953,7 +948,7 @@ export default function Home() {
         <div className="page-shell work-grid">
           <div className="work-copy">
             <p className="eyebrow eyebrow-light">Réalisations visibles</p>
-            <h2>Des installations qui restent propres une fois le chantier terminé.</h2>
+            <h2>Des installations soignées, pensées pour durer.</h2>
             <p>
               Les photographies fournies montrent notamment une salle de bain avec double vasque,
               une installation de douche avec paroi vitrée et un WC installé dans un espace compact.
@@ -1035,11 +1030,6 @@ export default function Home() {
             <div>
               <p className="eyebrow eyebrow-light">Avis clients</p>
               <h2>Les preuves sont déjà dans les témoignages.</h2>
-            </div>
-            <div className="rating-block">
-              <strong>5,0</strong>
-              <span>★★★★★</span>
-              <small>123 avis Google indiqués</small>
             </div>
           </div>
           <ReviewCarousel />
